@@ -20,5 +20,7 @@ from road.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('message/', views.index),
+    
+    # path('message/', views.index),
     path('get/',kowsi.as_view())
 ]
