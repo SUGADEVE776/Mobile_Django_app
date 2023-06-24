@@ -8,7 +8,7 @@ from django.db.models import *
 
 
 class emp_admin(admin.ModelAdmin):
-    list_display = ("name","age","dob","employed","show_average")
+    list_display = ("name","age","dob","employed")
     list_filter = ("employed",)
     fieldsets =(('none',{
         'fields' : ("name","employed")
@@ -17,9 +17,6 @@ class emp_admin(admin.ModelAdmin):
         'fields' : ("age","dob")
     }))
     # pass
-    def show_average(self, obj):
-        from django.db.models import Avg
-        result = employee.objects.filter(name=obj).aggregate(Avg("age"))
-        return result["age__avg"]
+    
 
 admin.site.register(employee,emp_admin)
